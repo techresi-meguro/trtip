@@ -12,7 +12,20 @@
  *   },
  */
 
+var HDWalletProvider = require('truffle-hdwallet-provider');
+var mnemonic = 'ENTER MNEMONIC HERE';
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
+  networks: {
+    rinkeby: {
+      provider: function() {
+        return new HDWalletProvider(
+          mnemonic,
+          'https://rinkeby.infura.io/v3/8628b296b38d45d692935af72ca2091c',
+        );
+      },
+      network_id: 1
+    }
+  }
 };
